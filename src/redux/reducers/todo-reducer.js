@@ -1,7 +1,7 @@
 import {
   SET_LOADING,
   GET_TODOS,
-  SET_TODO_TITILE,
+  SET_TODO_TITLE,
   CREATE_TODO,
   DELETE_TODO,
   CLEAR_TODO_TITLE,
@@ -32,7 +32,7 @@ export const todoReducer = (state = initialState, action) => {
       };
 
     // Set todo title from user that gonna input a title in form
-    case SET_TODO_TITILE:
+    case SET_TODO_TITLE:
       return {
         ...state,
         title: action.payload,
@@ -43,6 +43,7 @@ export const todoReducer = (state = initialState, action) => {
       return {
         ...state,
         todos: [action.payload, ...state.todos],
+        loading: false,
       };
 
     // Clear todo title in form after creating a new one

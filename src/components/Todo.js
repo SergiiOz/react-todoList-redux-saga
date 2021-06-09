@@ -15,20 +15,28 @@ import {
 import TodoForm from './TodoForm';
 import TodoItem from './TodoItem';
 
-const Todo = ({ todo: { loading, todos }, getTodos, deleteTodo }) => {
+const Todo = (props) => {
   useEffect(() => {
-    getTodos();
+    props.getTodos();
     // eslint-disable-next-line
   }, []);
 
   return (
     <React.Fragment>
       <TodoForm />
-      {loading && 'Loading...'}
-      {todos &&
-        todos.map((todo, index) => {
-          return <TodoItem todo={todo} key={index} deleteTodo={deleteTodo} />;
-        })}
+      {props.loading && 'Loading...'}
+      <ol>
+        {props.todos &&
+          props.todos.map((todo, index) => {
+            return (
+              <TodoItem
+                todo={todo}
+                key={index + todo.title}
+                deleteTodo={props.deleteTodo}
+              />
+            );
+          })}
+      </ol>
     </React.Fragment>
   );
 };
@@ -43,7 +51,8 @@ Todo.prototype = {
 // Get state to props
 const mapStateToProps = (state) => {
   return {
-    todo: state.todo,
+    loading: state.todo.loading,
+    todos: state.todo.todos,
   };
 };
 

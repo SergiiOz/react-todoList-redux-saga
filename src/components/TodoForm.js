@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // bring connect from react-redux, it's the bridge for connecting component to redux
-import connect from 'react-redux';
+import { connect } from 'react-redux';
 
 // bring the actions, just bring that have REQUESTED in the suffix
 // If you dispatching that doesn't have REQUESTED, it will not work
