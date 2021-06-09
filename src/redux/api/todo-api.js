@@ -17,7 +17,7 @@ export const getAllTodos = async () => {
 };
 
 // Create New Todo
-export const createTodo = async (title) => {
+export const createNewTodo = async (title) => {
   try {
     const todo = await instanceAxios.post(`/todos`, {
       title: title,
