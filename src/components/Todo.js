@@ -14,6 +14,7 @@ import {
 //components
 import TodoForm from './TodoForm';
 import TodoItem from './TodoItem';
+import FinalForm from './FinalForm';
 
 const Todo = (props) => {
   useEffect(() => {
@@ -37,6 +38,7 @@ const Todo = (props) => {
             );
           })}
       </ol>
+      <FinalForm />
     </React.Fragment>
   );
 };
